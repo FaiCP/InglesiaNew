@@ -1,17 +1,29 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+  --bg: #071312;
+  --bg-elevated: rgba(14, 28, 26, 0.82);
+  --panel: rgba(12, 23, 21, 0.92);
+  --panel-soft: rgba(255, 255, 255, 0.045);
+  --line: rgba(209, 255, 239, 0.12);
+  --line-strong: rgba(209, 255, 239, 0.2);
+  --text: #ecf6f1;
+  --muted: rgba(236, 246, 241, 0.72);
+  --subtle: rgba(236, 246, 241, 0.48);
+  --accent: #f2c14e;
+  --accent-strong: #e9a93a;
+  --secondary: #67d4b6;
+  --danger: #ff8a7a;
+  --shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
+  --radius: 28px;
+  --radius-sm: 16px;
+  --content-width: 1280px;
 }
 
 html {
-  height: 100%;
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -21,20 +33,26 @@ body {
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(103, 212, 182, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 0%, rgba(242, 193, 78, 0.14), transparent 22%),
+    radial-gradient(circle at 100% 70%, rgba(232, 166, 58, 0.09), transparent 20%),
+    linear-gradient(180deg, #071312 0%, #0c1817 50%, #091110 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+}
+
+::selection {
+  background: rgba(242, 193, 78, 0.28);
+  color: var(--text);
 }
 
 a {
@@ -42,8 +60,105 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(circle at center, black 62%, transparent 100%);
+}
+
+.skipLink {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  z-index: 20;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #10201e;
+  font-weight: 700;
+}
+
+.skipLink:focus {
+  left: 16px;
+}
+
+.page {
+  width: min(var(--content-width), calc(100vw - 32px));
+  margin: 0 auto;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: calc(var(--radius) + 8px);
+  background:
+    linear-gradient(180deg, rgba(11, 24, 23, 0.92), rgba(7, 16, 15, 0.9)),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(242, 193, 78, 0.12), transparent 28%),
+    linear-gradient(320deg, rgba(103, 212, 182, 0.1), transparent 22%);
+  pointer-events: none;
+}
+
+.mono {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (max-width: 900px) {
+  .shell {
+    padding: 16px;
+  }
+
+  .page {
+    width: min(var(--content-width), calc(100vw - 16px));
   }
 }

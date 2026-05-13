@@ -1,0 +1,613 @@
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+  gap: 28px;
+  padding: 40px;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  padding: 8px 0 16px;
+}
+
+.kicker,
+.eyebrow,
+.statLabel,
+.cardType,
+.cardAudience,
+.timelineDate,
+.statusBadge,
+.statusBadgeAlt,
+.calendarMonthTitle,
+.calendarButton,
+.featuredTag,
+.integrationNote,
+.topicChip,
+.toggleButton,
+.submitButton,
+.switchButton {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.06em;
+}
+
+.kicker,
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.heroCopy h1 {
+  margin: 0;
+  max-width: 10ch;
+  font-family: var(--font-display), serif;
+  font-size: clamp(3.4rem, 7vw, 6.9rem);
+  line-height: 0.9;
+  font-weight: 600;
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primaryAction,
+.secondaryAction,
+.calendarButton,
+.submitButton,
+.toggleButton,
+.switchButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+  cursor: pointer;
+}
+
+.primaryAction {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #16211f;
+  font-weight: 700;
+  box-shadow: 0 18px 34px rgba(242, 193, 78, 0.22);
+}
+
+.secondaryAction,
+.calendarButton,
+.toggleButton,
+.switchButton {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heroActions a:hover,
+.heroActions a:focus-visible,
+.calendarButton:hover,
+.calendarButton:focus-visible,
+.toggleButton:hover,
+.toggleButton:focus-visible,
+.switchButton:hover,
+.switchButton:focus-visible,
+.submitButton:hover,
+.submitButton:focus-visible,
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  transform: translateY(-1px);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+}
+
+.pills li {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.statusPanel {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+  backdrop-filter: blur(16px);
+}
+
+.statusBadgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.statusBadge,
+.statusBadgeAlt {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.statusBadge {
+  background: rgba(242, 193, 78, 0.16);
+  color: #ffd66d;
+}
+
+.statusBadgeAlt {
+  background: rgba(103, 212, 182, 0.12);
+  color: #9ff0d6;
+}
+
+.statusMetric {
+  display: grid;
+  gap: 2px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.statusMetric strong {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.statusMetric span,
+.subscriptionCard p,
+.sectionHeader p,
+.feedCard p,
+.timelineCard p,
+.integrationCard p,
+.integrationNote,
+.statDescription {
+  color: var(--muted);
+}
+
+.subscriptionCard {
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(242, 193, 78, 0.08), rgba(103, 212, 182, 0.04)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.subscriptionCard h3 {
+  margin: 8px 0;
+  font-family: var(--font-display), serif;
+  font-size: 1.7rem;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 40px 24px;
+}
+
+.statCard {
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.statLabel {
+  color: var(--secondary);
+  font-size: 0.74rem;
+}
+
+.statValue {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display), serif;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.statDescription {
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
+.dashboardGrid,
+.dashboardGridSecondary {
+  display: grid;
+  gap: 18px;
+  padding: 0 40px 40px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.feedSection,
+.calendarSection,
+.timelineSection,
+.adminSection,
+.subscriptionSection {
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(14px);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.sectionHeader h2,
+.formCard h3,
+.integrationCard h3,
+.timelineCard h3,
+.feedCard h3 {
+  margin: 0;
+  font-family: var(--font-display), serif;
+}
+
+.sectionHeader h2 {
+  font-size: 2.1rem;
+}
+
+.feedList,
+.timelineList {
+  display: grid;
+  gap: 14px;
+}
+
+.feedCard,
+.timelineCard {
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.028);
+}
+
+.featuredCard {
+  border-color: rgba(242, 193, 78, 0.26);
+  background:
+    linear-gradient(180deg, rgba(242, 193, 78, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.cardTopline,
+.cardMeta,
+.timelineMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardType,
+.cardAudience,
+.featuredTag,
+.timelineDate {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.cardType,
+.timelineDate {
+  color: #ffd66d;
+}
+
+.cardAudience {
+  color: var(--secondary);
+}
+
+.cardMeta {
+  margin-top: 16px;
+  color: var(--subtle);
+  font-size: 0.88rem;
+}
+
+.featuredTag {
+  color: var(--accent);
+}
+
+.calendarSection {
+  display: grid;
+  gap: 18px;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.calendarControls {
+  display: flex;
+  gap: 10px;
+}
+
+.calendarFrame {
+  display: grid;
+  gap: 12px;
+}
+
+.calendarMonthTitle {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+.weekdays,
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.weekdays span {
+  color: var(--subtle);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.calendarCell {
+  min-height: 120px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.026);
+}
+
+.calendarCellEmpty {
+  background: transparent;
+  border-style: dashed;
+}
+
+.calendarNumber {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.calendarChip,
+.calendarChipMore {
+  display: block;
+  padding: 7px 8px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: rgba(103, 212, 182, 0.12);
+  color: #c8ffee;
+  font-size: 0.77rem;
+  line-height: 1.35;
+}
+
+.calendarChipMore {
+  background: rgba(242, 193, 78, 0.12);
+  color: #ffe099;
+}
+
+.calendarButton {
+  min-height: 40px;
+}
+
+.dashboardGridSecondary {
+  align-items: start;
+}
+
+.timelineSection,
+.adminSection,
+.subscriptionSection {
+  min-height: 100%;
+}
+
+.formCard {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.formCard label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.formCard input,
+.formCard select,
+.formCard textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 13px 14px;
+  background: rgba(8, 17, 16, 0.8);
+  color: var(--text);
+  outline: none;
+}
+
+.formCard input:focus,
+.formCard select:focus,
+.formCard textarea:focus {
+  border-color: rgba(242, 193, 78, 0.5);
+  box-shadow: 0 0 0 3px rgba(242, 193, 78, 0.08);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.toggleRow,
+.topicList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.adminLocked {
+  display: grid;
+  gap: 16px;
+}
+
+.adminLocked > p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.adminBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toggleButtonActive,
+.switchActive {
+  background: rgba(242, 193, 78, 0.14);
+  color: #ffe39d;
+  border-color: rgba(242, 193, 78, 0.24);
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: 6px;
+  background: linear-gradient(135deg, rgba(242, 193, 78, 0.95), rgba(232, 166, 58, 0.96));
+  color: #13201d;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.switchButton {
+  width: 100%;
+  min-width: 92px;
+}
+
+.topicChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(103, 212, 182, 0.11);
+  color: #c8ffee;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+.integrationCard {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.integrationCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: grid;
+  gap: 4px;
+  max-width: 320px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 18, 17, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.toast strong {
+  color: #ffe099;
+}
+
+.toast span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+@media (max-width: 1120px) {
+  .hero,
+  .dashboardGrid,
+  .dashboardGridSecondary,
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy h1 {
+    max-width: 12ch;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .metricsGrid,
+  .dashboardGrid,
+  .dashboardGridSecondary {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero {
+    padding-top: 28px;
+  }
+
+  .calendarHeader,
+  .formRow {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .weekdays,
+  .calendarGrid {
+    gap: 6px;
+  }
+
+  .calendarCell {
+    min-height: 96px;
+    padding: 10px;
+  }
+}

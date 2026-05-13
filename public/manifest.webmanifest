@@ -1,0 +1,18 @@
+{
+  "name": "Control de Iglesias",
+  "short_name": "Iglesia",
+  "description": "Noticias, eventos y notificaciones para la iglesia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#071312",
+  "theme_color": "#0f1f1d",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
